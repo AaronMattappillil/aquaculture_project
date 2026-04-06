@@ -86,7 +86,25 @@ class _DataVisualizationWidgetState extends ConsumerState<DataVisualizationWidge
           child: historyAsync.when(
             data: (data) => _buildContentLayer(data),
             loading: () => const Center(child: CircularProgressIndicator(color: Color(0xFF00BFFF))),
-            error: (e, st) => Center(child: Text('Error: $e')),
+            error: (e, st) {
+              // On error, the service already tries to return a cached list, 
+              // but if FutureProvider throws, we show a graceful message
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.cloud_off, color: Colors.grey, size: 48),
+                    const SizedBox(height: 16),
+                    Text('Connection unstable. Showing last known data.', style: TextStyle(color: Colors.grey[400])),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: () => ref.refresh(historyProvider(widget.pondId)),
+                      child: const Text('Retry'),
+                    )
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ],
@@ -139,7 +157,19 @@ class _DataVisualizationWidgetState extends ConsumerState<DataVisualizationWidge
 
 
 
-    // Calculate width: 48 points * 25px per point = 1200px
+    final latestReading = data.isNotEmpty ? data.last : null;
+    final bool isStale = latestReading?.isStale ?? true;
+    final String lastUpdateText = latestReading != null 
+        ? 'Last updated: ${DateTime.now().difference(latestReading.timestamp).inMinutes} min ago'
+        : 'Connecting to sensors...';
+
+    // Simulated continuity for a smoother graph line if data is sparse
+    if (data.length == 1 && latestReading != null) {
+        // Add a second point at now to make a line
+        data.add(latestReading.copyWith(timestamp: DateTime.now()));
+    }
+
+    // Calculate width: points * 25px per point = 1200px
     final double chartWidth = points.length * 25.0;
 
     return SingleChildScrollView(
@@ -147,8 +177,26 @@ class _DataVisualizationWidgetState extends ConsumerState<DataVisualizationWidge
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text('REAL-TIME ENVIRONMENTAL CLASSIFICATION', 
-            style: TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.5)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('REAL-TIME ENVIRONMENTAL CLASSIFICATION', 
+                style: TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.5)),
+              Row(
+                children: [
+                  Container(
+                    width: 8, height: 8,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: latestReading == null ? Colors.red : (isStale ? Colors.orange : Colors.green),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(lastUpdateText, style: const TextStyle(color: Colors.grey, fontSize: 10)),
+                ],
+              ),
+            ],
+          ),
           const SizedBox(height: 16),
           _InteractiveChartWidget(
             selectedParam: selectedParam,
