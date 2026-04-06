@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import ValidationError
 
 from app.schemas.admin import AdminUserSummary
+from app.schemas.admin import AdminUserProfile
 
 from app.api.deps import get_admin_user
 from app.db.mongo import (
