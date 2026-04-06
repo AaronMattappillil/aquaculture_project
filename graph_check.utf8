@@ -1,0 +1,59 @@
+﻿Analyzing Aquaculture Project...                                
+
+   info - The constant name 'BASE_URL' isn't a lowerCamelCase identifier - lib\config\api_config.dart:5:14 - constant_identifier_names
+   info - The constant name 'API_TIMEOUT' isn't a lowerCamelCase identifier - lib\config\api_config.dart:8:16 - constant_identifier_names
+warning - Unused import: 'services/auth_service.dart' - lib\main.dart:4:8 - unused_import
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_dashboard_screen.dart:93:46 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_dashboard_screen.dart:106:46 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_dashboard_screen.dart:116:19 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\admin\admin_dashboard_screen.dart:118:31 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_dashboard_screen.dart:119:23 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_dashboard_screen.dart:121:23 - prefer_const_constructors
+warning - A value for optional parameter 'size' isn't ever given - lib\screens\admin\admin_dashboard_screen.dart:208:10 - unused_element_parameter
+warning - A value for optional parameter 'textColor' isn't ever given - lib\screens\admin\admin_dashboard_screen.dart:209:10 - unused_element_parameter
+warning - Unused import: '../../models/pond_model.dart' - lib\screens\admin\admin_user_detail_screen.dart:6:8 - unused_import
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:210:12 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:213:14 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\admin\admin_users_screen.dart:214:19 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:215:11 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\admin\admin_users_screen.dart:219:19 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:220:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:220:26 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:221:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:221:26 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:222:15 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:222:26 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:225:11 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:226:20 - prefer_const_constructors
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\screens\admin\admin_users_screen.dart:227:25 - prefer_const_literals_to_create_immutables
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:228:17 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:229:17 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\admin\admin_users_screen.dart:230:17 - prefer_const_constructors
+  error - Couldn't infer type parameter 'E'.
+
+Tried to infer 'Object' for 'E' which doesn't work:
+  Return type declared as 'List<E>'
+              used where  'Iterable<Future<_>>' is required.
+The type 'Object' was inferred from:
+  Parameter 'element' declared as     'E'
+                      but argument is 'TickerFuture'.
+  Parameter 'element' declared as     'E'
+                      but argument is 'Future<UserModel?>'.
+
+Consider passing explicit type argument(s) to the generic.
+
+ - lib\screens\splash\splash_screen.dart:36:39 - could_not_infer
+  error - The argument type 'List<Object>' can't be assigned to the parameter type 'Iterable<Future<dynamic>>'.  - lib\screens\splash\splash_screen.dart:36:39 - argument_type_not_assignable
+warning - The declaration '_getDotPainter' isn't referenced - lib\screens\user\data_visualization_screen.dart:184:16 - unused_element
+  error - Expected to find ';' - lib\screens\user\data_visualization_screen.dart:204:7 - expected_token
+warning - Dead code - lib\screens\user\data_visualization_screen.dart:204:8 - dead_code
+  error - Expected an identifier - lib\screens\user\data_visualization_screen.dart:204:8 - missing_identifier
+  error - Expected to find ';' - lib\screens\user\data_visualization_screen.dart:204:8 - expected_token
+  error - Unexpected text ';' - lib\screens\user\data_visualization_screen.dart:204:8 - unexpected_token
+  error - Expected an identifier - lib\screens\user\data_visualization_screen.dart:205:5 - missing_identifier
+  error - Unexpected text ';' - lib\screens\user\data_visualization_screen.dart:205:5 - unexpected_token
+   info - Unnecessary empty statement - lib\screens\user\data_visualization_screen.dart:205:6 - empty_statements
+   info - Unnecessary 'const' keyword - lib\screens\user\data_visualization_screen.dart:326:58 - unnecessary_const
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\user\support_screen.dart:88:15 - deprecated_member_use
+warning - The name kIsWeb is shown, but isn't used - lib\services\auth_service.dart:2:47 - unused_shown_name
+

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "871402837462",
+    "firebase_url": "https://aquaculture-monitoring-9ba53-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "aquaculture-monitoring-9ba53",
+    "storage_bucket": "aquaculture-monitoring-9ba53.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871402837462:android:b55cb5cc9712b322044077",
+        "android_client_info": {
+          "package_name": "com.example.aquaculture_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrU-ywuAbm4i3gSXk-horrZ1DduYdCMe0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
