@@ -10,7 +10,21 @@ from app.ml.models_manager import load_model, load_all_artifacts
 CONFIDENCE_THRESHOLD = 0.7
 
 # Load models globally or within a class for performance
-artifacts = load_all_artifacts()
+try:
+    artifacts = load_all_artifacts()
+except Exception as e:
+    import logging
+    logging.getLogger(__name__).error(f"Failed to load ML artifacts at module level: {e}")
+    # Provide placeholders to avoid NameError during router inspection
+    artifacts = {
+        'reg_model': None,
+        'clf_ammonia': None,
+        'clf_do_bin': None,
+        'clf_do_multi': None,
+        'scaler': None,
+        'stats': {}
+    }
+
 
 def calculate_co2(ph):
     """CO2 = 12 * (10 ** (7 - pH))"""

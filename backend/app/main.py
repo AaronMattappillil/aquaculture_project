@@ -106,6 +106,19 @@ def create_app() -> FastAPI:
     @app.exception_handler(Exception)
     async def global_exception_handler(request, exc):
         _logger.error(f"Unhandled exception: {exc}", exc_info=True)
+        
+        # If this is a request for documentation, show the actual error
+        if request.url.path in ["/openapi.json", "/docs", "/redoc"]:
+            import traceback
+            return JSONResponse(
+                status_code=500,
+                content={
+                    "detail": "OpenAPI Generation Failed",
+                    "error": str(exc),
+                    "traceback": traceback.format_exc()
+                },
+            )
+            
         return JSONResponse(
             status_code=500,
             content={"detail": "Internal Server Error"},

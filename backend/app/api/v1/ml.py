@@ -1,12 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import Optional
-
-# ML internal imports
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", "ml"))
-from predictor import predict_water_quality
+from app.ml.predictor import predict_water_quality
 
 router = APIRouter()
 

@@ -15,7 +15,7 @@ from ml_utils import (
 from pipeline import augment_features
 
 DATASETS_DIR = "e:/src/Aquaculture Project/backend/app/ml/datasets"
-MODELS_DIR = "e:/src/Aquaculture Project/backend/app/ml/models"
+MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
 
 def report_clf(name, y_true, y_pred, labels=["SAFE", "WARNING", "DANGER"]):
     print(f"\n=== {name} Metrics ===")

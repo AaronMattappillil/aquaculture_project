@@ -1,7 +1,7 @@
 import joblib
 import os
 
-MODELS_DIR = "e:/src/Aquaculture Project/backend/app/ml/models"
+MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
 
 def save_model(model, name):
     os.makedirs(MODELS_DIR, exist_ok=True)

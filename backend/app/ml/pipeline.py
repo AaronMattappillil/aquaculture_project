@@ -18,7 +18,7 @@ from ml_utils import standardize_columns, normalize_units, apply_scaling, drop_i
 np.random.seed(42)
 
 DATASETS_DIR = "e:/src/Aquaculture Project/backend/app/ml/datasets"
-MODELS_DIR = "e:/src/Aquaculture Project/backend/app/ml/models"
+MODELS_DIR = os.path.join(os.path.dirname(__file__), "models")
 
 def status_to_label(status_type, val):
     mapping = {0: "SAFE", 1: "WARNING", 2: "DANGER"}

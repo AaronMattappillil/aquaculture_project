@@ -7,8 +7,12 @@ from bson import ObjectId
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import ValidationError
 
-from app.schemas.admin import AdminUserSummary
-from app.schemas.admin import AdminUserProfile
+from app.schemas.admin import (
+    AdminUserSummary, AdminUserProfile, UserStatusUpdate,
+    AdminDashboardOut, AdminDashboardTickets, AdminUserDetailOut,
+    AdminUserDetailUser, AdminUserDetailPond, AdminUserDetailTicket,
+    AdminUserDetailPonds, AdminUserDetailTickets
+)
 
 from app.api.deps import get_admin_user
 from app.db.mongo import (
@@ -19,11 +23,7 @@ from app.db.mongo import (
 from app.models.pond import PondInDB
 from app.models.support_ticket import SupportTicketInDB
 from app.models.user import UserInDB
-from app.schemas.admin import (
-    AdminDashboardOut, AdminDashboardTickets, AdminUserDetailOut,
-    AdminUserDetailUser, AdminUserDetailPond, AdminUserDetailTicket,
-    AdminUserDetailPonds, AdminUserDetailTickets
-)
+
 from app.schemas.pond import AdminPondOut
 from app.schemas.sensor import SensorReading
 from app.schemas.support import SupportTicketOut
