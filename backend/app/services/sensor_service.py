@@ -116,5 +116,9 @@ class SensorService:
             # Hydrate with ML if missing
             self._hydrate_reading(r)
             
-            readings.append(SensorReading(**r))
+            try:
+                readings.append(SensorReading(**r))
+            except Exception as e:
+                _logger.error(f"Validation error for historical reading in pond {pond_id}: {e}")
+                continue
         return readings

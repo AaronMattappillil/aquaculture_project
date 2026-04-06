@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../app.dart';
 import '../../services/auth_service.dart';
+import '../../models/user_model.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -33,8 +34,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     final sessionFuture = ref.read(authServiceProvider).loadSession();
 
     // Wait for BOTH (minimum animation time of 3 seconds)
-    final results = await Future.wait([animationFuture, sessionFuture]);
-    final user = results[1];
+    final results = await Future.wait<dynamic>([animationFuture, sessionFuture]);
+    final user = results[1] as UserModel?;
 
     if (mounted) {
       // Update the auth state provider and initialization status

@@ -68,6 +68,7 @@ def create_app() -> FastAPI:
         "http://localhost:8000",
         "http://localhost:3000",
         "http://localhost:6196", # Flutter Web
+        "http://localhost:8876", # Flutter Web (Alternate)
         "https://aquaculture-frontend.vercel.app", # Example production URL
     ]
 

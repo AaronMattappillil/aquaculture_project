@@ -129,8 +129,11 @@ async def _build_user_profile(user_id: str) -> AdminUserProfile:
             )
             sensor_reading = None
             if latest_sensor:
-                latest_sensor["id"] = str(latest_sensor.pop("_id"))
-                sensor_reading = SensorReading(**latest_sensor)
+                try:
+                    latest_sensor["id"] = str(latest_sensor.pop("_id"))
+                    sensor_reading = SensorReading(**latest_sensor)
+                except Exception as sensor_exc:
+                    logger.warning("Failed to validate sensor data for pond %s: %s", pond_id, sensor_exc)
 
             ponds.append(AdminPondOut(
                 id=pond_id,
