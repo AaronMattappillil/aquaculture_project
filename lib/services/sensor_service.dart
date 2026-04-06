@@ -11,7 +11,7 @@ import '../config/api_config.dart';
 class SensorService {
   Stream<SensorReadingModel> getLiveSensorData(String token, String pondId) async* {
     while (true) {
-      final url = Uri.parse('$BASE_URL/sensors/ponds/$pondId/latest');
+      final url = Uri.parse('$baseUrl/sensors/ponds/$pondId/latest');
       debugPrint('Requesting: $url');
       
       try {
@@ -35,7 +35,7 @@ class SensorService {
   }
 
   Future<List<SensorReadingModel>> getHistoricalData(String token, String pondId) async {
-    final url = Uri.parse('$BASE_URL/sensors/ponds/$pondId/history');
+    final url = Uri.parse('$baseUrl/sensors/ponds/$pondId/history');
     debugPrint('Requesting: $url');
     
     try {
