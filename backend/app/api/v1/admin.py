@@ -7,6 +7,8 @@ from bson import ObjectId
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import ValidationError
 
+from app.schemas.admin import AdminUserSummary
+
 from app.api.deps import get_admin_user
 from app.db.mongo import (
     alerts_collection, notifications_collection, ponds_collection,
