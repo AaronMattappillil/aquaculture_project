@@ -26,15 +26,15 @@ The system collects sensor readings using ESP32, transmits data via MQTT, predic
 ## System Architecture
 
 ESP32 Sensors
-↓
+->
 MQTT Broker
-↓
+->
 FastAPI Backend
-↓
+->
 MongoDB Database
-↓
+->
 Random Forest Prediction Model
-↓
+->
 Flutter Mobile Application
 
 ## Tech Stack
@@ -93,6 +93,11 @@ docs/                 # Documentation and diagrams
 
 ## Screenshots
 
+### Screenshots
+[Click here to view screenshots](docs/Project%20Screenshots/)
+
+### System Architecture
+[Click here to view architecture documents](docs/Project%20Architecture/)
 
 
 ## Future Improvements
