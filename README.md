@@ -91,9 +91,9 @@ backend/app/ml/       # Random Forest model training and prediction
 docs/                 # Documentation and diagrams
 ```
 
-## Screenshots
+## Documentation
 
-### Screenshots
+### App Screenshots
 [Click here to view screenshots](docs/Project%20Screenshots/)
 
 ### System Architecture
